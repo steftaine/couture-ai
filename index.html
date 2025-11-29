@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUTURE AI | The Virtual Atelier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="atelier-header">
+            <div class="brand">
+                <h1>COUTURE AI</h1>
+                <span class="subtitle">VIRTUAL ATELIER</span>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <!-- Left: Model Source -->
+            <section class="panel model-panel">
+                <div class="panel-header">
+                    <h2>THE MUSES</h2>
+                    <span class="status-dot"></span>
+                    <span class="image-count" id="museCount">0</span>
+                </div>
+                <div class="drop-zone" id="modelDropZone">
+                    <div class="placeholder-content">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <p>UPLOAD BODY SHOTS</p>
+                        <span class="helper-text">Drop multiple images or click</span>
+                    </div>
+                    <input type="file" id="modelInput" accept="image/*" multiple hidden>
+                </div>
+                <div class="thumbnail-gallery" id="museThumbnails"></div>
+            </section>
+
+            <!-- Center: The Creation (Canvas) -->
+            <section class="panel canvas-panel">
+                <div class="canvas-container">
+                    <canvas id="mainCanvas"></canvas>
+                </div>
+            </section>
+
+            <!-- Right: Garment Source -->
+            <section class="panel garment-panel">
+                <div class="panel-header">
+                    <h2>THE GARMENTS</h2>
+                    <span class="status-dot"></span>
+                    <span class="image-count" id="garmentCount">0</span>
+                </div>
+                <div class="drop-zone" id="garmentDropZone">
+                    <div class="placeholder-content">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1">
+                            <path
+                                d="M20.38 3.4a2 2 0 0 0-2-1H5.62a2 2 0 0 0-2 1L2 6v5h2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9h2V6l-1.62-2.6z">
+                            </path>
+                            <path d="M12 2v4"></path>
+                        </svg>
+                        <p>UPLOAD GARMENTS</p>
+                        <span class="helper-text">Drop multiple images or click</span>
+                    </div>
+                    <input type="file" id="garmentInput" accept="image/*" multiple hidden>
+                </div>
+                <div class="thumbnail-gallery" id="garmentThumbnails"></div>
+
+                <!-- Controls -->
+                <div class="controls-section">
+                    <h3>OUTPUT TYPE</h3>
+                    <div class="output-toggle">
+                        <button class="toggle-btn active" data-type="photo">PHOTO</button>
+                        <button class="toggle-btn" data-type="video">VIDEO</button>
+                    </div>
+
+                    <h3>CREATIVE DIRECTION</h3>
+                    <textarea id="customPrompt" class="custom-prompt"
+                        placeholder="Describe the look you want to create... (e.g., 'silk fabric, runway pose, cinematic lighting, dramatic mood')"
+                        rows="4"></textarea>
+
+                    <button id="generateBtn" class="generate-btn">GENERATE PHOTOS</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Results Grid -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <h2>FINAL COMPOSITION</h2>
+            <div class="results-grid" id="resultsGrid"></div>
+        </section>
+    </div>
+    <script type="module" src="js/app.js"></script>
+    <div class="powered-by">
+        <span>POWERED BY</span>
+        <strong>GEMINI 3.0 PRO</strong>
+    </div>
+</body>
+
+</html>
