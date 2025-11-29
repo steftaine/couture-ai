@@ -558,3 +558,200 @@ body {
     background: rgba(212, 175, 55, 0.1);
     border-color: var(--accent-gold);
 }
+
+/* ===========================
+   MOBILE RESPONSIVE STYLES
+   =========================== */
+
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: auto;
+    }
+
+    .app-container {
+        padding: 16px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* Header */
+    .atelier-header {
+        margin-bottom: 24px;
+    }
+
+    .atelier-header h1 {
+        font-size: 1.5rem;
+        letter-spacing: 0.15em;
+    }
+
+    .atelier-header .subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 0.3em;
+    }
+
+    /* Workspace: Stack Vertically */
+    .workspace {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0;
+        min-height: auto;
+    }
+
+    /* Panels */
+    .panel {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .garment-panel {
+        max-height: none;
+        overflow-y: visible;
+        padding-bottom: 24px;
+    }
+
+    /* Canvas Panel - Smaller on Mobile */
+    .canvas-container {
+        min-height: 300px;
+        border-radius: 8px;
+    }
+
+    /* Panel Headers */
+    .panel-header h2 {
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+    }
+
+    .image-count {
+        padding: 3px 10px;
+        font-size: 0.7rem;
+    }
+
+    /* Drop Zones - Smaller */
+    .drop-zone {
+        padding: 40px 16px;
+    }
+
+    .placeholder-content svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .placeholder-content p {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+    }
+
+    .helper-text {
+        font-size: 0.7rem;
+    }
+
+    /* Thumbnails - 3 columns on mobile */
+    .thumbnail-gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        padding: 8px;
+    }
+
+    /* Controls Section */
+    .controls-section {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .controls-section h3 {
+        font-size: 0.65rem;
+        margin: 16px 0 8px 0;
+    }
+
+    /* Output Toggle */
+    .output-toggle {
+        gap: 6px;
+        padding: 3px;
+    }
+
+    .toggle-btn {
+        padding: 10px;
+        font-size: 0.7rem;
+    }
+
+    /* Custom Prompt */
+    .custom-prompt {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    /* Generate Button */
+    .generate-btn {
+        margin-top: 20px;
+        padding: 16px 20px;
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+    }
+
+    /* Powered By Badge - Reposition */
+    .powered-by {
+        position: static;
+        margin: 24px auto 0;
+        width: fit-content;
+        padding: 10px 20px;
+        font-size: 0.65rem;
+    }
+
+    /* Results Section */
+    .results-section {
+        padding: 24px 16px;
+    }
+
+    .results-section h2 {
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+    }
+
+    .result-card img,
+    .result-card video {
+        max-height: 500px;
+    }
+
+    .result-info {
+        padding: 12px;
+    }
+
+    .result-actions {
+        margin-top: 8px;
+    }
+
+    .result-btn {
+        font-size: 0.75rem;
+        padding: 6px;
+    }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+    .atelier-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .canvas-container {
+        min-height: 250px;
+    }
+
+    .drop-zone {
+        padding: 30px 12px;
+    }
+
+    .thumbnail-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .generate-btn {
+        font-size: 0.85rem;
+        padding: 14px 16px;
+    }
+}
