@@ -1,5 +1,5 @@
 
-const API_KEY = 'AIzaSyB-iMkWdNpZVNQ3t5aB4NTgLTp91XHtg20';
+const API_KEY = 'AIzaSyB4TuPnNrTG_5leA6msgcR8AByeLlBwI_4';
 const url = `https://generativelanguage.googleapis.com/v1beta/models?key=${API_KEY}`;
 
 async function listModels() {

@@ -5,7 +5,7 @@ export class VeoService {
         // For Google AI Studio: https://aistudio.google.com/app/apikey
 
         // IMPORTANT: Wrap the key in quotes - it must be a string!
-        this.API_KEY = 'AIzaSyB-iMkWdNpZVNQ3t5aB4NTgLTp91XHtg20';
+        this.API_KEY = 'AIzaSyB4TuPnNrTG_5leA6msgcR8AByeLlBwI_4';
 
         // Updated to use Gemini 3 Pro Image (Nano Banana Pro)
         this.MODEL = 'gemini-3-pro-image-preview';
