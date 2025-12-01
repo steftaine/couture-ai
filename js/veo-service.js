@@ -7,7 +7,7 @@ export class VeoService {
         // IMPORTANT: Wrap the key in quotes - it must be a string!
         this.API_KEY = 'AIzaSyDx52eC3Et-nshL7YXZyLoRbRiQt8r-5mU';
 
-        // Updated to use Gemini 3 Pro Image (Nano Banana Pro)
+        // Updated to use Gemini 3 Pro Image (Preview)
         this.MODEL = 'gemini-3-pro-image-preview';
     }
 
