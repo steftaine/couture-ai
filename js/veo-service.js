@@ -230,8 +230,8 @@ export class VeoService {
         return new Promise((resolve) => {
             const canvas = document.createElement('canvas');
 
-            // Resize to max 640px on longest side to support 8+ people
-            const maxSize = 640;
+            // Resize to max 512px on longest side to support 8+ people
+            const maxSize = 512;
             console.log('[COMPRESS] Original size:', img.naturalWidth, 'x', img.naturalHeight);
             let width = img.naturalWidth;
             let height = img.naturalHeight;
