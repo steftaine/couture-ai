@@ -37,13 +37,13 @@ export class VeoService {
                     },
                     {
                         inline_data: {
-                            mime_type: "image/png",
+                            mime_type: "image/jpeg",
                             data: modelBase64
                         }
                     },
                     {
                         inline_data: {
-                            mime_type: "image/png",
+                            mime_type: "image/jpeg",
                             data: garmentBase64
                         }
                     }
@@ -93,13 +93,13 @@ export class VeoService {
         for (let i = 0; i < pairCount; i++) {
             parts.push({
                 inline_data: {
-                    mime_type: "image/png",
+                    mime_type: "image/jpeg",
                     data: allBase64Images[i * 2] // Person
                 }
             });
             parts.push({
                 inline_data: {
-                    mime_type: "image/png",
+                    mime_type: "image/jpeg",
                     data: allBase64Images[i * 2 + 1] // Garment
                 }
             });
@@ -137,13 +137,13 @@ export class VeoService {
                     },
                     {
                         inline_data: {
-                            mime_type: "image/png",
+                            mime_type: "image/jpeg",
                             data: modelBase64
                         }
                     },
                     {
                         inline_data: {
-                            mime_type: "image/png",
+                            mime_type: "image/jpeg",
                             data: garmentBase64
                         }
                     }
@@ -232,6 +232,7 @@ export class VeoService {
 
             // Resize to max 640px on longest side to support 8+ people
             const maxSize = 640;
+            console.log('[COMPRESS] Original size:', img.naturalWidth, 'x', img.naturalHeight);
             let width = img.naturalWidth;
             let height = img.naturalHeight;
 
@@ -247,6 +248,7 @@ export class VeoService {
 
             canvas.width = width;
             canvas.height = height;
+            console.log('[COMPRESS] Compressed to:', width, 'x', height);
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0, width, height);
 
