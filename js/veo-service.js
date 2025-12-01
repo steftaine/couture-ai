@@ -230,8 +230,8 @@ export class VeoService {
         return new Promise((resolve) => {
             const canvas = document.createElement('canvas');
 
-            // Resize to max 768px on longest side to support 8+ people
-            const maxSize = 768;
+            // Resize to max 640px on longest side to support 8+ people
+            const maxSize = 640;
             let width = img.naturalWidth;
             let height = img.naturalHeight;
 
@@ -250,8 +250,8 @@ export class VeoService {
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0, width, height);
 
-            // Use JPEG with 0.7 quality for better compression (supports 8+ people)
-            resolve(canvas.toDataURL('image/jpeg', 0.7).split(',')[1]);
+            // Use JPEG with 0.6 quality for maximum compression (supports 8+ people)
+            resolve(canvas.toDataURL('image/jpeg', 0.6).split(',')[1]);
         });
     }
 
