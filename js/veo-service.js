@@ -230,8 +230,8 @@ export class VeoService {
         return new Promise((resolve) => {
             const canvas = document.createElement('canvas');
 
-            // Resize to max 512px on longest side to support 8+ people
-            const maxSize = 512;
+            // Resize to max 1024px for good quality (API limit is image count, not size)
+            const maxSize = 1024;
             console.log('[COMPRESS] Original size:', img.naturalWidth, 'x', img.naturalHeight);
             let width = img.naturalWidth;
             let height = img.naturalHeight;
@@ -252,8 +252,8 @@ export class VeoService {
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0, width, height);
 
-            // Use JPEG with 0.6 quality for maximum compression (supports 8+ people)
-            resolve(canvas.toDataURL('image/jpeg', 0.6).split(',')[1]);
+            // Use JPEG with 0.85 quality for good balance
+            resolve(canvas.toDataURL('image/jpeg', 0.85).split(',')[1]);
         });
     }
 
