@@ -224,16 +224,34 @@ export class VeoService {
     }
 
     /**
-     * Helper: Convert Image to Base64
+     * Helper: Convert Image to Base64 with resizing to reduce context size
      */
     toBase64(img) {
         return new Promise((resolve) => {
             const canvas = document.createElement('canvas');
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
+
+            // Resize to max 1024px on longest side to reduce context usage
+            const maxSize = 1024;
+            let width = img.naturalWidth;
+            let height = img.naturalHeight;
+
+            if (width > maxSize || height > maxSize) {
+                if (width > height) {
+                    height = (height / width) * maxSize;
+                    width = maxSize;
+                } else {
+                    width = (width / height) * maxSize;
+                    height = maxSize;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
             const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-            resolve(canvas.toDataURL('image/png').split(',')[1]);
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // Use JPEG with 0.8 quality for better compression
+            resolve(canvas.toDataURL('image/jpeg', 0.8).split(',')[1]);
         });
     }
 
